@@ -11,6 +11,13 @@
 # production
 /build
 
+#lock
+.lock
+
+#temp
+/.vs
+/.vscode
+
 # misc
 .DS_Store
 .env.local
