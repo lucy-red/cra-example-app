@@ -251,4 +251,4 @@ package.json:
 
 - devDependenices : 번들링할때 포함되지 않음
 
-hmr : hot module reload
+hmr : hot module replace
