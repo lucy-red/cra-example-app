@@ -1,8 +1,8 @@
 # Frontend 개발에 앞서 알아둬야할 내용
 
-Created: May 11, 2020 10:27 AM
-Created By: SOOJEONG OH
-Last Edited By: SOOJEONG OH
+Created: May 11, 2020 10:27 AM\
+Created By: SOOJEONG OH\
+Last Edited By: SOOJEONG OH\
 Last Edited Time: May 11, 2020 3:18 PM
 
 # Node.js
