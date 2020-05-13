@@ -233,6 +233,100 @@ bundle optimization, asset management and injection of environment과 같은 일
 모듈의 방향성이 commonJS인지 아닌지에 따라 사용 \
 더 찾아보기.. 
 
+### AMD / common.js
+
+출처: https://iam-song.tistory.com/28 [내맘대로] 
+
+모듈화된 코드를 로딩하는 역할
+
+**차이점**
+
+모든 모듈의 로딩이 완료된 후에 실행할 것인가,
+
+로딩 완료 이전에 실행하는 것인가
+
+(동기 vs 비동기)
+
+**Common.js**
+
+모든 모듈이 로컬에 다운로드가 된 아후에 실행하는 방식
+
+node.js에서 사용하는 방식
+
+server 환경에서 외부 모듈을 가져올 때 유리한 방식
+
+```jsx
+var lib = require("package/lib");
+
+function foo() {
+  lib.log("hello world!");
+} 
+
+exports.foobar = foo;
+```
+
+하지만 모든 모듈을 다운로드 할 때까지 페이지를 동작할 수 없음.
+
+이를 해결하기 위해 새롭게 탄생한 방식이 AMD
+
+**AMD**
+
+비동기적으로 필요한 파일을 다운로드하는 방식
+
+client에서 외부 모듈을 가져올 때 유리한 방식
+
+```jsx
+define(["package/lib"], function (lib) {
+ function foo() {
+  lib.log("hello world!");
+ } 
+
+ return {
+   foobar : foo
+ }
+}
+```
+
+**UMD**
+
+어떤 방식으로 외부모듈을 로딩하는 것과 무관하게
+
+각 모듈을 선언하는 방식
+
+```jsx
+(function (root, factory) {
+    if (typeof define === 'function' && define.amd) {
+
+        // AMD
+        define(['jquery', 'underscore'], factory);
+
+    } else if (typeof exports === 'object') {
+
+        // Node, CommonJS-like
+        module.exports = factory(require('jquery'), require('underscore'));
+
+    } else {
+
+        // Browser globals (root is window)
+        root.returnExports = factory(root.jQuery, root._);
+
+    }
+
+}(this, function ($, _) {
+
+    //    methods
+    function a(){};    //    private because it's not returned (see below)
+    function b(){};    //    public because it's returned
+    function c(){};    //    public because it's returned
+
+    //    exposed public methods
+    return {
+        b: b,
+        c: c
+    }
+}));
+```
+
 ---
 
 ### 그 외
