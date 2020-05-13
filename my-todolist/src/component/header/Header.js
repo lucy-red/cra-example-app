@@ -10,13 +10,11 @@ class Header extends Component {
 
     return (
       <div>
-          <input ref={node => {
-            
+          <input ref={node => {            
             input = node;
-          }}/>
+          }}/>  
 
-          <button onClick={() =>{
-            // console.log(input.value)
+          <button onClick={() =>{ 
             onClick(input.value);
             input.value = "";
           }}>Add</button>

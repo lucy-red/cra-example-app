@@ -29,8 +29,11 @@ class TODO extends Component {
                     id:id
                     ,complete:!complete
                 })}
-                className={!!complete ? 'complete' : ''}
-            >{todo}</li>
+                className={`${!!complete ? 'complete' : ''} Todolist-li`} 
+            >
+            <span>{todo}</span>
+            <button >완료</button>
+            </li>
         );
 
     }

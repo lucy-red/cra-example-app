@@ -1,3 +1,21 @@
+.Todolist-li{
+  margin: 8px 0 0 5px;
+  width: 400px;
+  min-width: 240px;
+  height: 30px;  
+  border: 1px solid #aaa;
+  padding: 2px 5px;
+  line-height: 30px;
+  cursor: default;
+  border-radius: 3px;
+}
+  .Todolist-li-done {
+    width:30px;
+    height:24px;
+    border-radius: 5px;
+    
+  }
+
 .App {
     text-align: center;
   }

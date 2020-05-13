@@ -19,7 +19,7 @@ import Todo from "./TODO";
 
          return (
              <ul>
-                 {todos.map(todo=>
+                 {todos.map(todo=>                                    
                     <Todo 
                         key = {todo.id}
                         onClick = {onClick}
